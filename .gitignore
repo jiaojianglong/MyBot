@@ -1,0 +1,11 @@
+/chat_bot/__pycache__/
+/chat_bot/common_qa/__pycache__/
+/chat_bot/common_qa/analyze/__pycache__/
+/chat_bot/handlers/__pycache__/
+/chat_bot/handlers/base/__pycache__/
+/chat_bot/handlers/bot_manage/__pycache__/
+/chat_bot/models/__pycache__/
+/chat_bot/models/connect/__pycache__/
+/chat_bot/models/es/__pycache__/
+/chat_bot/models/mongodb/__pycache__/
+/chat_bot/tools/__pycache__/
