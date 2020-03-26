@@ -40,9 +40,7 @@ class QuestionSearchProcessor(Processor):
         answer_id = match_question.get("answer_id")
         res = self.answer_model.get(answer_id)
         answer = res.get("_source",{}).get("answers")
-        for r in answer:
-            if r.get("emotion") == 0:
-                answer = r.get("answer")
+        answer = answer[0]
         result = {}
         result['data'] = {"answer":answer}
         parameter['result'] = result

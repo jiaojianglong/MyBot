@@ -11,7 +11,7 @@ import collections
 
 class RGQuestionAnswer(ES):
     _index = "rg_question_answer"
-    _type = "doc"
+    _type = "_doc"
     index_mapping = {
   "settings": {
     "number_of_shards": 2,

@@ -16,8 +16,8 @@ except:
 
 
 ES_DB = dict(
-        HOSTS=["http://127.0.0.1:9200"],
-        # HTTP_AUTH=("aegis","shield"),
+        HOSTS=["http://192.168.0.103:9200"],
+        HTTP_AUTH=("elastic","jiao123456"),
         TIMEOUT=60,
         TYPE="es",
         MAXSIZE=40,

@@ -19,7 +19,7 @@ def question_match(results,content):
     content_e = entity.get_content_entity(content)
     print("content实体：",content_e)
     for result in results:
-        result_e = entity.get_content_entity(result.get("title"))
+        result_e = entity.get_content_entity(result.get("question"))
         print("result实体：", result_e)
         if set(content_e) == set(result_e):
             match_question = result

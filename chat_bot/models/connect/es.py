@@ -11,7 +11,7 @@ from settings import ES_DB
 es_conn = elasticsearch.Elasticsearch(
     hosts = ES_DB['HOSTS'],
     type = ES_DB['TYPE'],
-    # http_auth = ES_DB['HTTP_AUTH'],
+    http_auth = ES_DB['HTTP_AUTH'],
     timeout = ES_DB["TIMEOUT"],
     maxsize = ES_DB['MAXSIZE']
 )

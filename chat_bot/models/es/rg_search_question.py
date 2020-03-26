@@ -10,7 +10,7 @@ from models.connect.es import ES
 
 class RGSearchQuestion(ES):
     _index = "rg_search_question"
-    _type = "doc"
+    _type = "_doc"
     index_mapping = {
   "settings": {
     "number_of_shards": 2,
@@ -58,21 +58,20 @@ class RGSearchQuestion(ES):
         words_weight = parameter.get("words_weight")
 
         query_body = {"query":{"bool":{"should":[
-            {"match":{"title":content}},
+            {"match":{"question":content}},
         ]}}}
 
         if any(words_weight):
             for w_words,w_weight in words_weight:
                 query_body['query']['bool']['should'].append(
-                    {"match":{"title":{
-                        "analyzer": "my_analyzer",
+                    {"match":{"question":{
                         "query": w_words,
                         "boost": w_weight}}}
                 )
         print("question_query",query_body)
-        res = self.search(query_body,_source=["answer_id","title"])["hits"]["hits"]
+        res = self.search(query_body,_source=["answer_id","question"])["hits"]["hits"]
         search_result = [{"score":question.get("_score"),
-                          "title":question.get("_source").get("title"),
+                          "question":question.get("_source").get("question"),
                           "answer_id":question.get("_source").get("answer_id")}for question in res]
 
         return search_result
