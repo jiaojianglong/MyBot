@@ -38,6 +38,8 @@ class QuestionSearchProcessor(Processor):
         print(result)
         print("匹配到问题：",match_question)
         answer_id = match_question.get("answer_id")
+        if not answer_id:
+            return {"result":{"data":{"answer": {"answer":"你在说什么我听不懂呀"}}}}
         res = self.answer_model.get(answer_id)
         answer = res.get("_source",{}).get("answers")
         answer = answer[0]
